@@ -1,0 +1,29 @@
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+
+    *{
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: border-box;
+        font-family: 'Manrope', sans-serif;
+    }
+    *:focus{
+        outline: none;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #b3b3b3;
+    }
+    
+    button{
+        cursor: pointer;
+    }
+`
+export default GlobalStyle
