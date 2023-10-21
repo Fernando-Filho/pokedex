@@ -17,13 +17,14 @@ export default function Page() {
   }, []);
 
   async function handlePokemon() {
-    const res = await fetchPokemonData();
+    let res = await fetchPokemonData();
+    res = res.results;
     setPokemons(() => res);
   }
 
   return (
     <>
-      <Header/>
+      <Header pokemons={pokemons}/>
       <Main pokemons={pokemons} fetchPokemonData={fetchPokemonData} />
     </>
   );

@@ -3,7 +3,8 @@
 import { HeaderContainer, Input, Button } from "./style"
 import { PokeballContainer, Pokeball, Line, MiniCirclo } from "./pokeball"
 
-const Header = ({handlePokemon}) => {
+const Header = ({pokemons, handlePokemon}) => {
+
     return (
         <HeaderContainer>
             <Input type="text"/>

@@ -19,7 +19,7 @@ export const Input = styled.input`
     font-size: 16px;
     background-color: #333438;
     color: #ffffff;
-    box-shadow: -2px 2px 5px 1px rgb(51, 52, 56, .5);
+    box-shadow: 2px 2px 5px 1px rgb(51, 52, 56, .5);
 
         &::placeholder{
             color: rgba(179, 179, 179, 0.4);
@@ -36,7 +36,7 @@ export const Button = styled.button`
     border-radius: 8px;
     background-color: rgb(14, 115, 232);
     color: #ffffff;
-    box-shadow: -2px 2px 5px 1px rgb(51, 52, 56, .5);
+    box-shadow: 2px 2px 5px 1px rgb(51, 52, 56, .5);
     
     &:hover{
         box-shadow: 0px 2px 15px 1px rgba(14, 116, 232, .8);

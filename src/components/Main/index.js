@@ -7,8 +7,7 @@ const Main = ({pokemons, fetchPokemonData}) => {
         <MainContainer>
             {pokemons.map((pokemon) => (
                 <CardPokemons pokemon={pokemon}
-                            fetchPokemonData={fetchPokemonData}/>
-            ))}
+                            fetchPokemonData={fetchPokemonData}/>))}
         </MainContainer>
     )
 }

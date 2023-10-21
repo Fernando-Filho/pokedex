@@ -6,20 +6,25 @@ const CardPokemons = ({pokemon, fetchPokemonData}) => {
 
     const [dataPokemon, setDataPokemon] = useState([])
 
+    const tiposPokemon = dataPokemon.length == 0 ? [{type:{name: "---"}}] : dataPokemon.types;
+
     useEffect(() => {
-        const res = fetchPokemonData(pokemon.url)
-        setDataPokemon(() => res)
+        handleDataPokemon();
     },[]);
 
-    console.log()
+    async function handleDataPokemon() {
+        const res = await fetchPokemonData(pokemon.url);
+        setDataPokemon(() => res);
+      }
 
     return(
         <CardContainer>
-            <ImageCard src="ditto.png"/>
-            <h3>{pokemon.name}</h3>
+            <ImageCard src={dataPokemon.sprites.front_default} alt={`Imagem do ${dataPokemon.name}`}/>
+            <h3>{dataPokemon.name}</h3>
             <TipoPokemmonContainer>
-                <TipoPokemmon>{dataPokemon}</TipoPokemmon>
-                <TipoPokemmon>Tipo 2</TipoPokemmon>
+                {tiposPokemon.map((tipo) => (
+                    <TipoPokemmon>{tipo.type.name}</TipoPokemmon>
+                ))}
             </TipoPokemmonContainer>
         </CardContainer>
     )

@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
     width: 150px;
     border-radius: 25px;
     background-color: #137297;
+    box-shadow: 2px 2px 5px 1px rgb(51, 52, 56, .5);
 `
 
 export const ImageCard = styled.img`

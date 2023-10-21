@@ -1,6 +1,6 @@
 async function getData(pokemon) {
 
-    const url = pokemon === undefined ? `https://pokeapi.co/api/v2/pokemon/` : pokemon
+    const url = pokemon === undefined ? `https://pokeapi.co/api/v2/pokemon/` : pokemon;
 
     try {
         const response = await fetch(url);
@@ -20,10 +20,10 @@ async function getData(pokemon) {
 async function fetchPokemonData(pokemon) {
     try {
         const pokemonData = await getData(pokemon);
-        return(pokemonData.results);
+        return(pokemonData);
     } catch (error) {
         return(error);
     }
 }
-  
+ 
 export default fetchPokemonData;
