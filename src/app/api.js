@@ -1,6 +1,7 @@
 async function getData(pokemon) {
 
-    const url = pokemon === undefined ? `https://pokeapi.co/api/v2/pokemon/` : pokemon;
+    // const url = pokemon === undefined ? `https://pokeapi.co/api/v2/pokemon/` : pokemon;
+    const url = pokemon === undefined ? `https://pokeapi.co/api/v2/pokemon?offset=0&limit=500` : pokemon;
 
     try {
         const response = await fetch(url);

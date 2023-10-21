@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         width: 100vw;
         background-color: #b3b3b3;
+        user-select:none;
     }
     
     button{

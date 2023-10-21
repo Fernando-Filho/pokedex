@@ -10,7 +10,10 @@ import { useEffect, useState } from "react";
 import fetchPokemonData from "./api";
 
 export default function Page() {
+  const [searchPokemon, setSearchPokemon] = useState("")
   const [pokemons, setPokemons] = useState([]);
+
+  const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon)) : pokemons;
 
   useEffect(() => {
     handlePokemon();
@@ -24,8 +27,12 @@ export default function Page() {
 
   return (
     <>
-      <Header pokemons={pokemons}/>
-      <Main pokemons={pokemons} fetchPokemonData={fetchPokemonData} />
+      <Header searchPokemon={searchPokemon}
+              setSearchPokemon={setSearchPokemon}/>
+
+      <Main pokemons={filteredPokemons}
+            fetchPokemonData={fetchPokemonData}
+            searchPokemon={searchPokemon}/>
     </>
   );
 }

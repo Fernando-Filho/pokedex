@@ -8,5 +8,5 @@ export const MainContainer = styled.main`
     align-items: center;
     justify-content: center;
     height: 80%;
-    width: 100%;
+    width: 90%;
 `
