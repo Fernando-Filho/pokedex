@@ -2,6 +2,8 @@
 
 import Header from "../components/Header/index";
 import Main from "../components/Main/index";
+import Footer from "../components/Footer/index";
+import HomePageButton from "../components/Button/index";
 
 // import CardPokemons from "../components/cardPokemon/index";
 
@@ -33,6 +35,9 @@ export default function Page() {
       <Main pokemons={filteredPokemons}
             fetchPokemonData={fetchPokemonData}
             searchPokemon={searchPokemon}/>
+      <Footer/>
+
+      <HomePageButton/>
     </>
   );
 }

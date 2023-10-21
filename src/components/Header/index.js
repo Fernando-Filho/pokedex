@@ -1,7 +1,6 @@
 "use client"
 
 import { HeaderContainer, Input, Button } from "./style"
-import { PokeballContainer, Pokeball, Line, MiniCirclo } from "./pokeball"
 
 const Header = ({searchPokemon, setSearchPokemon}) => {
 
