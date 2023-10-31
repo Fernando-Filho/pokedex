@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-    margin-top: 11%;
-    /* margin-bottom: 20%; */
+    margin-top: 120px;
+    padding-bottom: 70px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
