@@ -3,6 +3,7 @@
 import { HeaderContainer, Input, Button } from "./style"
 
 const Header = ({searchPokemon, setSearchPokemon}) => {
+    
 
     return (
         <HeaderContainer>

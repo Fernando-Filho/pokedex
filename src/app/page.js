@@ -15,7 +15,7 @@ export default function Page() {
   const [searchPokemon, setSearchPokemon] = useState("")
   const [pokemons, setPokemons] = useState([]);
 
-  const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon)) : pokemons;
+  const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : pokemons;
 
   useEffect(() => {
     handlePokemon();
