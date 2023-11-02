@@ -15,8 +15,7 @@ export const CardContainer = styled.div`
     text-align: center;
 
     &:hover{
-        box-shadow: -2px -1px 15px 1px ${(props) => props.boxShadowTypeColor},
-                     2px 1px 25px 1px ${(props) => props.boxShadowTypeColor};
+        box-shadow: 0px 0px 20px 5px ${(props) => props.boxShadowTypeColor};
     }
 `
 

@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
         --ghost: rgba(112, 88, 152, 1);
         --steel: rgba(184, 184, 208, 1);
         --bug: rgba(47, 202, 93, 1);
-        --box-shadow-color: rgba(52, 152, 219, 1);
+        --fairy: rgba(238, 153, 172, 1);
     }
     
     body{
