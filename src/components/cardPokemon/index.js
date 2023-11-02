@@ -19,7 +19,7 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
       }
 
     return(
-        <CardContainer>
+        <CardContainer boxShadowTypeColor={"var(--"+tiposPokemon[0].type.name+")"}>
             <ImageCard src={imgPokemon} alt={`Imagem do ${dataPokemon.name}`}/>
             <h3>{`#${dataPokemon.id} `}{namePokemon}</h3>
             <TipoPokemmonContainer>

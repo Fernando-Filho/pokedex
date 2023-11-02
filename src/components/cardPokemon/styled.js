@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 export const CardContainer = styled.div`
+    transition: .2s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,13 +11,13 @@ export const CardContainer = styled.div`
     width: 150px;
     border-radius: 25px;
     background-color: #949ca0;
-    /* background-color: #6890f0; */
-    /* box-shadow: 1px 1px 10px 1px rgb(51, 52, 56, .5); */
-    box-shadow:
-                -2px -1px 15px 1px var(--water),
-                2px 1px 15px 1px var(--fire);
-
+    box-shadow: 1px 1px 10px 1px rgb(51, 52, 56, .5);
     text-align: center;
+
+    &:hover{
+        box-shadow: -2px -1px 15px 1px ${(props) => props.boxShadowTypeColor},
+                     2px 1px 25px 1px ${(props) => props.boxShadowTypeColor};
+    }
 `
 
 export const ImageCard = styled.img`
@@ -39,6 +40,5 @@ export const TipoPokemmon = styled.div`
     justify-content: center;
     width: 40%;
     border-radius: 5px;
-    /* background-color: rgba(255, 255, 255, 0.3) */
-    background-color: ${(props) => props.backgroundTypeColor || 'var(--normal)' };
+    background-color: ${(props) => props.backgroundTypeColor};
 `

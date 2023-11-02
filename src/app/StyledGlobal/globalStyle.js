@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
         --ice:rgba(152, 216, 216, 1);
         --dragon: rgba(112, 56, 248, 1);
         --dark: rgba(112, 88, 72, 1);
-        --normal: rgba(168, 168, 120, 1);
+        --normal: rgba(158, 158, 91, 1);
         --fighting: rgba(144, 48, 40, 1);
         --flying: rgba(168, 144, 240, 1);
         --poison: rgba(160, 64, 160, 1);
@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         height: 100vh;
         width: 100%;
-        background-color: #b3b3b3;
+        background-color: #4d4747;
         user-select:none;
     }
     
