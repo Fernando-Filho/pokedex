@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         height: 100vh;
         width: 100%;
-        background-color: #4d4747;
+        background-color: rgba(15, 15, 15, 0.725);
         user-select:none;
     }
     

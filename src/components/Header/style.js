@@ -8,9 +8,8 @@ export const HeaderContainer = styled.header`
     justify-content: center;
     height: 10%;
     width: 100%;
-    /* background-color: #b3b3b379; */
     backdrop-filter: blur(8px);
-    box-shadow: 0px 0px 5px 1px rgba(51, 52, 56, 1);
+    box-shadow: 0px 0px 5px 1px rgba(51, 52, 56, .4);
 `
 
 export const Input = styled.input`

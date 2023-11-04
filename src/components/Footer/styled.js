@@ -9,9 +9,8 @@ export const FooterContainer = styled.footer`
     justify-content: center;
     height: 5%;
     width: 100%;
-    /* background-color: #b3b3b379; */
     backdrop-filter: blur(8px);
-    box-shadow: 0px 0px 5px 1px rgb(51, 52, 56, .5);
+    box-shadow: 0px 0px 5px 1px rgb(51, 52, 56, .4);
 `
 export const Copyright = styled.div`
     display: flex;
