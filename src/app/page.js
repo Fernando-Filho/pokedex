@@ -5,8 +5,6 @@ import Main from "../components/Main/index";
 import Footer from "../components/Footer/index";
 import HomePageButton from "../components/Button/index";
 
-// import CardPokemons from "../components/cardPokemon/index";
-
 import { useEffect, useState } from "react";
 
 import fetchPokemonData from "./api";
@@ -16,6 +14,10 @@ export default function Page() {
   const [pokemons, setPokemons] = useState([]);
 
   const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : pokemons;
+
+  if(pokemons.length === 0) {
+    handleManyPokemon();
+  }
 
   useEffect(() => {
     handlePokemon();
@@ -32,8 +34,14 @@ export default function Page() {
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${morePokemon}`);
     res = res.results;
     setPokemons(() => res);
-
   }
+
+  async function handleManyPokemon() {
+    let res = await fetchPokemonData(searchPokemon);
+    res = res.results;
+    setDataPokemon(() => res);
+  }
+
 
   return (
     <>
