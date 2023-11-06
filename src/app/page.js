@@ -27,6 +27,14 @@ export default function Page() {
     setPokemons(() => res);
   }
 
+  async function handleMorePokemon() {
+    const morePokemon = (pokemons.length + 50)
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${morePokemon}`);
+    res = res.results;
+    setPokemons(() => res);
+
+  }
+
   return (
     <>
       <Header searchPokemon={searchPokemon}
@@ -34,7 +42,8 @@ export default function Page() {
 
       <Main pokemons={filteredPokemons}
             fetchPokemonData={fetchPokemonData}
-            searchPokemon={searchPokemon}/>
+            searchPokemon={searchPokemon}
+            handleMorePokemon={handleMorePokemon}/>
       <Footer/>
 
       <HomePageButton/>

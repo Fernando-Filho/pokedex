@@ -19,12 +19,12 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
       }
 
     return(
-        <CardContainer boxShadowTypeColor={"var(--"+tiposPokemon[0].type.name+")"}>
+        <CardContainer $boxshadowtypecolor={"var(--"+tiposPokemon[0].type.name+")"}>
             <ImageCard src={imgPokemon} alt={`Imagem do ${dataPokemon.name}`}/>
             <h3>{`#${dataPokemon.id} `}{namePokemon}</h3>
             <TipoPokemmonContainer>
                 {tiposPokemon.map((tipo, index) => (
-                    <TipoPokemmon key={index} backgroundTypeColor={"var(--"+tipo.type.name+")"}>{tipo.type.name}</TipoPokemmon>
+                    <TipoPokemmon key={index} $backgroundtypecolor={"var(--"+tipo.type.name+")"}>{tipo.type.name}</TipoPokemmon>
                 ))}
             </TipoPokemmonContainer>
         </CardContainer>

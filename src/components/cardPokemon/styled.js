@@ -15,7 +15,7 @@ export const CardContainer = styled.div`
     text-align: center;
 
     &:hover{
-        box-shadow: 0px 0px 20px 5px ${(props) => props.boxShadowTypeColor};
+        box-shadow: 0px 0px 20px 5px ${(props) => props.$boxshadowtypecolor || "var(--normal)"};
     }
 `
 
@@ -39,5 +39,5 @@ export const TipoPokemmon = styled.div`
     justify-content: center;
     width: 40%;
     border-radius: 5px;
-    background-color: ${(props) => props.backgroundTypeColor};
+    background-color: ${(props) => props.$backgroundtypecolor || "var(--normal)"};
 `
