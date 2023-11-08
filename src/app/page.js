@@ -15,10 +15,6 @@ export default function Page() {
 
   const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : pokemons;
 
-  if(pokemons.length === 0) {
-    handleManyPokemon();
-  }
-
   useEffect(() => {
     handlePokemon();
   }, []);
@@ -36,17 +32,22 @@ export default function Page() {
     setPokemons(() => res);
   }
 
-  async function handleManyPokemon() {
-    let res = await fetchPokemonData(searchPokemon);
-    res = res.results;
-    setDataPokemon(() => res);
+  async function handlePokemonByType() {
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon}`);
+    res = res.pokemon;
+    res.map((pokemonByType, index) => (
+      setPokemons(() => pokemonByType)));
+
+    setSearchPokemon("");
+    console.log(pokemons[0]);
   }
 
 
   return (
     <>
       <Header searchPokemon={searchPokemon}
-              setSearchPokemon={setSearchPokemon}/>
+              setSearchPokemon={setSearchPokemon}
+              handlePokemonByType={handlePokemonByType}/>
 
       <Main pokemons={filteredPokemons}
             fetchPokemonData={fetchPokemonData}

@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items:center;
     justify-content: center;
+    gap: 12px;
     height: 10%;
     width: 100%;
     backdrop-filter: blur(8px);
@@ -21,7 +22,7 @@ export const Input = styled.input`
     font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;
-    background-color: #b3b3b3;
+    background-color: rgba(179, 179, 179, 1);
     color: #000000;
     box-shadow: 2px 2px 5px 1px rgb(51, 52, 56, .5);
 
@@ -32,4 +33,22 @@ export const Input = styled.input`
     @media screen and (max-width: 425px){
         width: 250px;
     }
+`
+
+export const Button = styled.button`
+    transition: .5s;
+    height: 50px;
+    width: 50px;
+    border-radius: 8px;
+    background-color: rgba(179, 179, 179, 1);
+    box-shadow: 2px 2px 5px 1px rgb(51, 52, 56, .5);
+
+    &:hover{
+        box-shadow: 0px 0px 20px 5px ${(props) => props.$backgroundcolorbytype || rgba(179, 179, 179, 0.4)};
+    }
+`
+
+export const ImageButton = styled.img`
+    height: 25px;
+    width: 25px;
 `

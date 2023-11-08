@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
 
     const [dataPokemon, setDataPokemon] = useState([])
-    const namePokemon = dataPokemon.length == 0 ? "---" : dataPokemon.name[0].toUpperCase() + dataPokemon.name.substring(1);
+    const namePokemon = dataPokemon.length == 0 ? "---" : formatedName(dataPokemon.name);
     const imgPokemon = dataPokemon.length == 0 ? "ditto.png" : dataPokemon.sprites.front_default; 
     const tiposPokemon = dataPokemon.length == 0 ? [{type:{name: "---"}}] : dataPokemon.types;
 
@@ -18,13 +18,22 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
         setDataPokemon(() => res);
       }
 
+    function formatedName(name) {
+        return (
+            name[0].toUpperCase() + name.substring(1)
+        )
+    }
+
     return(
         <CardContainer $boxshadowtypecolor={"var(--"+tiposPokemon[0].type.name+")"}>
             <ImageCard src={imgPokemon} alt={`Imagem do ${dataPokemon.name}`}/>
             <h3>{`#${dataPokemon.id} `}{namePokemon}</h3>
             <TipoPokemmonContainer>
                 {tiposPokemon.map((tipo, index) => (
-                    <TipoPokemmon key={index} $backgroundtypecolor={"var(--"+tipo.type.name+")"}>{tipo.type.name}</TipoPokemmon>
+                    <TipoPokemmon   key={index} 
+                                    $backgroundtypecolor={"var(--"+tipo.type.name+")"}>
+                                        {formatedName(tipo.type.name)}
+                    </TipoPokemmon>
                 ))}
             </TipoPokemmonContainer>
         </CardContainer>
