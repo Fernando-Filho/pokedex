@@ -12,17 +12,14 @@ import fetchPokemonData from "./api";
 export default function Page() {
   const [searchPokemon, setSearchPokemon] = useState("")
   const [pokemons, setPokemons] = useState([]);
-  const [pokemonsByTypes, setPokemonByTypes] = useState([]);
+  const [pokemonsByTypes, setPokemonsByTypes] = useState([]);
 
   const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : pokemons;
+  const listPokemons = pokemonsByTypes.length !== 0 ? pokemonsByTypes : filteredPokemons;
 
   useEffect(() => {
     handlePokemon();
   }, []);
-  
-  useEffect(() => {
-    console.log(pokemonsByTypes);
-  }, [pokemonsByTypes]);
 
   async function handlePokemon() {
     let res = await fetchPokemonData();
@@ -45,13 +42,10 @@ export default function Page() {
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon}`);
     setSearchPokemon("");
     res = res.pokemon;
-    res.map((pokemonByType, index) => (
-      setPokemonByTypes(...pokemonsByTypes, pokemonByType.pokemon)));
-      // console.log(pokemonByType.pokemon[0])));
+    const newPokemons = res.map((pokemonByType) => pokemonByType.pokemon);
 
-
+     setPokemonsByTypes(() => newPokemons)
     
-    // console.log(pokemons[0]);
   }
 
 
@@ -61,7 +55,7 @@ export default function Page() {
               setSearchPokemon={setSearchPokemon}
               handlePokemonByType={handlePokemonByType}/>
 
-      <Main listPokemons={filteredPokemons}
+      <Main listPokemons={listPokemons}
             fetchPokemonData={fetchPokemonData}
             searchPokemon={searchPokemon}
             handleMorePokemon={handleMorePokemon}/>
