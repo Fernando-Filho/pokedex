@@ -2,12 +2,12 @@ import { MainContainer, CardPokemonsContainer, H3 } from "./styled"
 
 import CardPokemons from "../cardPokemon";
 
-const Main = ({pokemons, fetchPokemonData, searchPokemon, handleMorePokemon}) => {
+const Main = ({listPokemons, fetchPokemonData, searchPokemon, handleMorePokemon}) => {
     
     return(
         <MainContainer>
             <CardPokemonsContainer>
-                {pokemons.map((pokemon, index) => (
+                {listPokemons.map((pokemon, index) => (
                     <CardPokemons   key={index}
                                     pokemon={pokemon}
                                     fetchPokemonData={fetchPokemonData}
