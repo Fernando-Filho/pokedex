@@ -39,7 +39,7 @@ export default function Page() {
     if(searchPokemon == "") {
       return
     }
-    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon}`);
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon.toLowerCase()}`);
     setSearchPokemon("");
     res = res.pokemon;
     const newPokemons = res.map((pokemonByType) => pokemonByType.pokemon);
