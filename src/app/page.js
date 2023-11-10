@@ -10,15 +10,17 @@ import { useEffect, useState } from "react";
 import fetchPokemonData from "./api";
 
 export default function Page() {
-  const [searchPokemon, setSearchPokemon] = useState("")
   const [pokemons, setPokemons] = useState([]);
+  const [searchPokemon, setSearchPokemon] = useState("")
+  const [typesPokemons, setTypesPokemons] = useState(["all"])
+  const [selectedPokemonType, setSelectedPokemonType] = useState('');
   const [pokemonsByTypes, setPokemonsByTypes] = useState([]);
 
-  const filteredPokemons = searchPokemon !== "" ? pokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : pokemons;
-  const listPokemons = pokemonsByTypes.length !== 0 ? pokemonsByTypes : filteredPokemons;
+  const listPokemons = pokemonsByTypes.length !== 0 ? pokemonsByTypes : pokemons;
 
   useEffect(() => {
     handlePokemon();
+    handleTypesPokemons();
   }, []);
 
   async function handlePokemon() {
@@ -35,6 +37,14 @@ export default function Page() {
     setPokemons(() => res);
   }
 
+  async function handleTypesPokemons() {
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/`);
+    res = res.results;
+    const handleType = res.map((type) => type.name);
+    
+    setTypesPokemons(() => handleType)
+  }
+
   async function handlePokemonByType() {
     if(searchPokemon == "") {
       return
@@ -42,10 +52,9 @@ export default function Page() {
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon.toLowerCase()}`);
     setSearchPokemon("");
     res = res.pokemon;
-    const newPokemons = res.map((pokemonByType) => pokemonByType.pokemon);
+    const handlePokemon = res.map((pokemonByType) => pokemonByType.pokemon);
 
-     setPokemonsByTypes(() => newPokemons)
-    
+    setPokemonsByTypes(() => handlePokemon)
   }
 
 
@@ -53,6 +62,10 @@ export default function Page() {
     <>
       <Header searchPokemon={searchPokemon}
               setSearchPokemon={setSearchPokemon}
+              typesPokemons={typesPokemons}
+              setTypesPokemons={setTypesPokemons}
+              selectedPokemonType={selectedPokemonType}
+              setSelectedPokemonType={setSelectedPokemonType}
               handlePokemonByType={handlePokemonByType}/>
 
       <Main listPokemons={listPokemons}
