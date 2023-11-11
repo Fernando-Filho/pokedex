@@ -13,8 +13,9 @@ export default function Page() {
   const [pokemons, setPokemons] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("")
   const [typesPokemons, setTypesPokemons] = useState(["all"])
-  const [selectedPokemonType, setSelectedPokemonType] = useState('');
+  const [selectedPokemonType, setSelectedPokemonType] = useState("all");
   const [pokemonsByTypes, setPokemonsByTypes] = useState([]);
+  
 
   const listPokemons = pokemonsByTypes.length !== 0 ? pokemonsByTypes : pokemons;
 
@@ -22,6 +23,10 @@ export default function Page() {
     handlePokemon();
     handleTypesPokemons();
   }, []);
+
+  useEffect(() => {
+    handlePokemonByType();
+  }, [selectedPokemonType]);
 
   async function handlePokemon() {
     let res = await fetchPokemonData();
@@ -41,20 +46,18 @@ export default function Page() {
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/`);
     res = res.results;
     const handleType = res.map((type) => type.name);
-    
     setTypesPokemons(() => handleType)
   }
 
   async function handlePokemonByType() {
-    if(searchPokemon == "") {
-      return
+    if(selectedPokemonType === "all") {
+      return setPokemonsByTypes([]);
     }
-    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${searchPokemon.toLowerCase()}`);
-    setSearchPokemon("");
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${selectedPokemonType}`);
     res = res.pokemon;
     const handlePokemon = res.map((pokemonByType) => pokemonByType.pokemon);
-
-    setPokemonsByTypes(() => handlePokemon)
+    setPokemonsByTypes(() => handlePokemon);
+    // setPokemonsByTypes((prevPokemons) => [...prevPokemons, ...handlePokemon]);
   }
 
 

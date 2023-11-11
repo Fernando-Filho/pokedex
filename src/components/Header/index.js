@@ -1,25 +1,8 @@
 "use client"
 
-import { HeaderContainer, Input, Button, ImageButton } from "./style"
-
-import { useEffect, useState } from "react";
+import { HeaderContainer, Input, Button, ImageButton, SelectContainer } from "./style"
 
 const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemons, selectedPokemonType, setSelectedPokemonType, handlePokemonByType}) => {
-    
-
-    // useEffect(() => {
-    //     handleTypesPokemons();
-    // },[]);
-
-    // async function handleTypesPokemons() {
-    //     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/`);
-    //     res = res.results;
-    //     res.map((type) => (
-    //         setTypesPokemons(...typesPokemons, type.name)
-    //     ));       
-    //   }
-
-    console.log(typesPokemons)
 
     return (
         <HeaderContainer>
@@ -28,25 +11,20 @@ const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemon
                     value={searchPokemon}
                     onChange={(e) => setSearchPokemon(e.target.value)}/>
 
-            <Button $backgroundcolorbytype={"var(--"+searchPokemon.toLowerCase()+")"}
-                    onClick={handlePokemonByType}/>
+            {/* <Button $backgroundcolorbytype={"var(--"+searchPokemon.toLowerCase()+")"}
+                    onClick={handlePokemonByType}/> */}
 
-            <div>
-                {/* <label htmlFor="frutas">Escolha uma fruta:</label> */}
-                <select id="PokemonType" name="PokemonType" onChange={(e) => setSelectedPokemonType(e.target.value)} value={selectedPokemonType}>
-                <option value="all">All</option>
-                {typesPokemons.map((typePokemon) => (
-                    <option value={typePokemon}>{typePokemon}</option>
-                ))}
-                
-                {/* <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option> */}
+            <SelectContainer>
+                <select id="PokemonType"
+                        name="PokemonType"
+                        value={selectedPokemonType}
+                        onChange={(e) => setSelectedPokemonType(e.target.value)}>
+                            <option value="all">All</option>
+                            {typesPokemons.map((typePokemon, index) => (
+                                <option key={index} value={typePokemon}>{typePokemon}</option>
+                            ))}
                 </select>
-                <p>Você escolheu: {selectedPokemonType}</p>
-            </div>
+            </SelectContainer>
         </HeaderContainer>
     )
 }

@@ -52,3 +52,9 @@ export const ImageButton = styled.img`
     height: 25px;
     width: 25px;
 `
+
+export const SelectContainer = styled.div`
+    &:select{
+        background-color: red;
+    }
+`
