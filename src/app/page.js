@@ -57,7 +57,7 @@ export default function Page() {
     res = res.pokemon;
     const handlePokemon = res.map((pokemonByType) => pokemonByType.pokemon);
     setPokemonsByTypes(() => handlePokemon);
-    // setPokemonsByTypes((prevPokemons) => [...prevPokemons, ...handlePokemon]);
+    setPokemonsByTypes((prevPokemons) => [...prevPokemons, ...handlePokemon]);
   }
 
 
