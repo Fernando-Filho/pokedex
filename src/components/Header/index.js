@@ -19,7 +19,7 @@ const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemon
                         name="PokemonType"
                         value={selectedPokemonType}
                         onChange={(e) => setSelectedPokemonType(e.target.value)}>
-                            <option value="all">All</option>
+                            <option value="unknown"></option>
                             {typesPokemons.map((typePokemon, index) => (
                                 <option key={index} value={typePokemon}>{typePokemon}</option>
                             ))}

@@ -24,8 +24,6 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
         )
     }
 
-    console.log(imgPokemon)
-
     return(
         <CardContainer $boxshadowtypecolor={"var(--"+tiposPokemon[0].type.name+")"}>
             <ImageCard src={imgPokemon} alt={`Imagem do ${dataPokemon.name}`}/>

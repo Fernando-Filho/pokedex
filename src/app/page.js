@@ -12,7 +12,7 @@ import fetchPokemonData from "./api";
 export default function Page() {
   const [pokemons, setPokemons] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("")
-  const [typesPokemons, setTypesPokemons] = useState(["all"])
+  const [typesPokemons, setTypesPokemons] = useState(["unknown"])
   const [selectedPokemonType, setSelectedPokemonType] = useState("all");
   const [pokemonsByTypes, setPokemonsByTypes] = useState([]);
   
@@ -53,11 +53,11 @@ export default function Page() {
     if(selectedPokemonType === "all") {
       return setPokemonsByTypes([]);
     }
+    setSearchPokemon(" ");
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${selectedPokemonType}`);
-    res = res.pokemon;
-    const handlePokemon = res.map((pokemonByType) => pokemonByType.pokemon);
-    setPokemonsByTypes(() => handlePokemon);
-    setPokemonsByTypes((prevPokemons) => [...prevPokemons, ...handlePokemon]);
+    const handlePokemon = res.pokemon.map((pokemonByType) => pokemonByType.pokemon);
+    setPokemonsByTypes(handlePokemon);
+    setSearchPokemon("");
   }
 
 
