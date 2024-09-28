@@ -16,7 +16,7 @@ export const CardPokemonsContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 20px;
     align-items: center;
     justify-content: center;
     width: 90%;
@@ -27,7 +27,7 @@ export const H3 = styled.p`
     color: rgba(255, 255, 255, .4);
 
     &:hover{
-        color: rgba(255, 255, 255, .6);
+        color: rgba(255, 255, 255);
         text-decoration: underline;
         cursor: pointer;
     }

@@ -5,12 +5,12 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 16px;
-    min-height: 240px;
-    min-width: 150px;
+    height: 240px;
+    width: 150px;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #949ca0;
     box-shadow: 1px 1px 10px 1px rgb(51, 52, 56, .5);
     text-align: center;
@@ -39,7 +39,7 @@ export const TipoPokemmon = styled.div`
     align-items: center;
     justify-content: center;
     height: 24px;
-    min-width: 45%;
+    min-width: 48%;
     border-radius: 5px;
     background-color: ${(props) => props.$backgroundtypecolor || "var(--normal)"};
 `

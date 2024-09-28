@@ -6,7 +6,7 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
 
     const [dataPokemon, setDataPokemon] = useState([])
     const namePokemon = dataPokemon.length == 0 ? "---" : formatedName(dataPokemon.name);
-    const imgPokemon = dataPokemon.length == 0 ? "ditto.png" : dataPokemon.sprites.front_default; 
+    const imgPokemon = dataPokemon.length == 0 ? "ditto.png" : dataPokemon.sprites.front_default;
     const tiposPokemon = dataPokemon.length == 0 ? [{type:{name: "---"}}] : dataPokemon.types;
 
     useEffect(() => {
@@ -23,6 +23,8 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
             name[0].toUpperCase() + name.substring(1)
         )
     }
+
+    console.log(imgPokemon)
 
     return(
         <CardContainer $boxshadowtypecolor={"var(--"+tiposPokemon[0].type.name+")"}>
