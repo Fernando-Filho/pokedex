@@ -12,8 +12,8 @@ import fetchPokemonData from "./api";
 export default function Page() {
   const [pokemons, setPokemons] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("")
-  const [typesPokemons, setTypesPokemons] = useState(["unknown"])
-  const [selectedPokemonType, setSelectedPokemonType] = useState("all");
+  const [typesPokemons, setTypesPokemons] = useState([])
+  const [selectedPokemonType, setSelectedPokemonType] = useState("unknown");
   const [pokemonsByTypes, setPokemonsByTypes] = useState([]);
   
 
@@ -30,29 +30,23 @@ export default function Page() {
 
   async function handlePokemon() {
     let res = await fetchPokemonData();
-    res = res.results;
-    setPokemons(() => res);
+    setPokemons(res.results);
   }
 
   async function handleMorePokemon() {
     setSearchPokemon("");
     const morePokemon = (pokemons.length + 50)
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${morePokemon}`);
-    res = res.results;
-    setPokemons(() => res);
+    setPokemons(res.results);
   }
 
   async function handleTypesPokemons() {
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/`);
-    res = res.results;
-    const handleType = res.map((type) => type.name);
-    setTypesPokemons(() => handleType)
+    const handleType = res.results.map((type) => type.name);
+    setTypesPokemons((handleType))
   }
 
   async function handlePokemonByType() {
-    if(selectedPokemonType === "all") {
-      return setPokemonsByTypes([]);
-    }
     setSearchPokemon(" ");
     let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${selectedPokemonType}`);
     const handlePokemon = res.pokemon.map((pokemonByType) => pokemonByType.pokemon);

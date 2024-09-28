@@ -11,15 +11,12 @@ const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemon
                     value={searchPokemon}
                     onChange={(e) => setSearchPokemon(e.target.value)}/>
 
-            {/* <Button $backgroundcolorbytype={"var(--"+searchPokemon.toLowerCase()+")"}
-                    onClick={handlePokemonByType}/> */}
-
             <SelectContainer>
                 <select id="PokemonType"
                         name="PokemonType"
                         value={selectedPokemonType}
                         onChange={(e) => setSelectedPokemonType(e.target.value)}>
-                            <option value="unknown"></option>
+                            <option value="unknown">Unknown</option>
                             {typesPokemons.map((typePokemon, index) => (
                                 <option key={index} value={typePokemon}>{typePokemon}</option>
                             ))}
