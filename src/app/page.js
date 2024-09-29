@@ -54,7 +54,6 @@ export default function Page() {
     setSearchPokemon("");
   }
 
-
   return (
     <>
       <Header searchPokemon={searchPokemon}

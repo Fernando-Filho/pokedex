@@ -1,6 +1,6 @@
 "use client"
 
-import { HeaderContainer, Input, Button, ImageButton, SelectContainer } from "./style"
+import { HeaderContainer, Input, SelectContainer } from "./style"
 
 const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemons, selectedPokemonType, setSelectedPokemonType, handlePokemonByType}) => {
 
@@ -10,9 +10,8 @@ const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemon
                     placeholder="Qual o seu Pokemon preferido?"
                     value={searchPokemon}
                     onChange={(e) => setSearchPokemon(e.target.value)}/>
-
-            <SelectContainer>
-                <select id="PokemonType"
+            <>
+                <SelectContainer id="PokemonType"
                         name="PokemonType"
                         value={selectedPokemonType}
                         onChange={(e) => setSelectedPokemonType(e.target.value)}>
@@ -20,8 +19,8 @@ const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemon
                             {typesPokemons.map((typePokemon, index) => (
                                 <option key={index} value={typePokemon}>{typePokemon}</option>
                             ))}
-                </select>
-            </SelectContainer>
+                </SelectContainer>
+            </>
         </HeaderContainer>
     )
 }

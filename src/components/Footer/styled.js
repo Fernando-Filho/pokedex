@@ -9,7 +9,7 @@ export const FooterContainer = styled.footer`
     justify-content: center;
     height: 5%;
     width: 100%;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     box-shadow: 0px 0px 5px 1px rgb(51, 52, 56, .4);
 `
 export const Copyright = styled.div`
