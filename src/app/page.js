@@ -61,6 +61,12 @@ export default function Page() {
     setSelectedPokemonType(typePokemon);
   }
 
+  function formatedName(name) {
+    return (
+        name[0].toUpperCase() + name.substring(1)
+    )
+}
+
   return (
     <>
       <Header searchPokemon={searchPokemon}
@@ -69,13 +75,16 @@ export default function Page() {
               setTypesPokemons={setTypesPokemons}
               selectedPokemonType={selectedPokemonType}
               setSelectedPokemonType={setSelectedPokemonType}
-              handlePokemonByType={handlePokemonByType}/>
+              handlePokemonByType={handlePokemonByType}
+              handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}
+              formatedName={formatedName}/>
 
       <Main listPokemons={listPokemons}
             fetchPokemonData={fetchPokemonData}
             searchPokemon={searchPokemon}
             handleMorePokemon={handleMorePokemon}
-            handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}/>
+            handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}
+            formatedName={formatedName}/>
       <Footer/>
 
       <HomePageButton/>

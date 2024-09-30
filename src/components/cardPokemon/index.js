@@ -2,7 +2,7 @@ import { CardContainer, ImageCard, TipoPokemmonContainer, TipoPokemmon } from ".
 
 import { useEffect, useState } from "react";
 
-const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon, handlePokemonByTypeOnClick}) => {
+const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon, handlePokemonByTypeOnClick, formatedName}) => {
 
     const [dataPokemon, setDataPokemon] = useState([])
     const namePokemon = dataPokemon.length == 0 ? "---" : formatedName(dataPokemon.name);
@@ -17,12 +17,6 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon, handlePokemonBy
         const res = await fetchPokemonData(pokemon.url);
         setDataPokemon(() => res);
       }
-
-    function formatedName(name) {
-        return (
-            name[0].toUpperCase() + name.substring(1)
-        )
-    }
 
     return(
         <CardContainer $boxshadowtypecolor={"var(--"+tiposPokemon[0].type.name+")"}>

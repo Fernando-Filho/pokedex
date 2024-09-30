@@ -2,7 +2,7 @@ import { MainContainer, CardPokemonsContainer, H3 } from "./styled"
 
 import CardPokemons from "../cardPokemon";
 
-const Main = ({listPokemons, fetchPokemonData, searchPokemon, handleMorePokemon, handlePokemonByTypeOnClick}) => {
+const Main = ({listPokemons, fetchPokemonData, searchPokemon, handleMorePokemon, handlePokemonByTypeOnClick, formatedName}) => {
 
     listPokemons = searchPokemon !== "" ? listPokemons.filter((item) => item.name.includes(searchPokemon.toLowerCase())) : listPokemons;
     
@@ -14,7 +14,8 @@ const Main = ({listPokemons, fetchPokemonData, searchPokemon, handleMorePokemon,
                                     pokemon={pokemon}
                                     fetchPokemonData={fetchPokemonData}
                                     searchPokemon={searchPokemon}
-                                    handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}/>))}
+                                    handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}
+                                    formatedName={formatedName}/>))}
             </CardPokemonsContainer>
 
 

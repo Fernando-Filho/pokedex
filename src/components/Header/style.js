@@ -13,6 +13,14 @@ export const HeaderContainer = styled.header`
     box-shadow: 0px 0px 5px 1px rgba(50, 50, 5, .4);
 `
 
+export const ImagePokeBoll = styled.img`
+    height: 40px;
+    width: 40px;
+    float: left;
+    opacity: .9;
+    cursor: pointer;
+`
+
 export const Input = styled.input`
     transition: .5s;
     height: 50px;
