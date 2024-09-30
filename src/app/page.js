@@ -55,11 +55,10 @@ export default function Page() {
   }
 
   async function handlePokemonByTypeOnClick(typePokemon) {
-    setSearchPokemon(" ");
-    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${typePokemon}`);
-    const handlePokemon = res.pokemon.map((pokemonByType) => pokemonByType.pokemon);
-    setPokemonsByTypes(handlePokemon);
-    setSearchPokemon("");
+    if(typePokemon == selectedPokemonType){
+      return
+    }
+    setSelectedPokemonType(typePokemon);
   }
 
   return (
