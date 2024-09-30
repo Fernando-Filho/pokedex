@@ -2,7 +2,7 @@ import { CardContainer, ImageCard, TipoPokemmonContainer, TipoPokemmon } from ".
 
 import { useEffect, useState } from "react";
 
-const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
+const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon, handlePokemonByTypeOnClick}) => {
 
     const [dataPokemon, setDataPokemon] = useState([])
     const namePokemon = dataPokemon.length == 0 ? "---" : formatedName(dataPokemon.name);
@@ -30,8 +30,10 @@ const CardPokemons = ({pokemon, fetchPokemonData, searchPokemon}) => {
             <h3>{namePokemon}</h3>
             <TipoPokemmonContainer>
                 {tiposPokemon.map((tipo, index) => (
-                    <TipoPokemmon   key={index} 
-                                    $backgroundtypecolor={"var(--"+tipo.type.name+")"}>
+                    <TipoPokemmon   key={index}
+                                    value={tipo.type.name}
+                                    $backgroundtypecolor={"var(--"+tipo.type.name+")"}
+                                    onClick={() => handlePokemonByTypeOnClick(tipo.type.name)}>
                                         {formatedName(tipo.type.name)}
                     </TipoPokemmon>
                 ))}

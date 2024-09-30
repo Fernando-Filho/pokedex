@@ -54,6 +54,14 @@ export default function Page() {
     setSearchPokemon("");
   }
 
+  async function handlePokemonByTypeOnClick(typePokemon) {
+    setSearchPokemon(" ");
+    let res = await fetchPokemonData(`https://pokeapi.co/api/v2/type/${typePokemon}`);
+    const handlePokemon = res.pokemon.map((pokemonByType) => pokemonByType.pokemon);
+    setPokemonsByTypes(handlePokemon);
+    setSearchPokemon("");
+  }
+
   return (
     <>
       <Header searchPokemon={searchPokemon}
@@ -67,7 +75,8 @@ export default function Page() {
       <Main listPokemons={listPokemons}
             fetchPokemonData={fetchPokemonData}
             searchPokemon={searchPokemon}
-            handleMorePokemon={handleMorePokemon}/>
+            handleMorePokemon={handleMorePokemon}
+            handlePokemonByTypeOnClick={handlePokemonByTypeOnClick}/>
       <Footer/>
 
       <HomePageButton/>
