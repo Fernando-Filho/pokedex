@@ -2,7 +2,7 @@
 
 import { HeaderContainer, ImagePokeBoll, Input, SelectContainer } from "./style"
 
-const Header = ({searchPokemon, setSearchPokemon, typesPokemons, setTypesPokemons, selectedPokemonType, setSelectedPokemonType, handlePokemonByTypeOnClick, formatedName}) => {
+const Header = ({searchPokemon, setSearchPokemon, typesPokemons, selectedPokemonType, setSelectedPokemonType, handlePokemonByTypeOnClick, formatedName}) => {
 
     const imgPokeBoll = "pokeboll.png";
 
