@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 
 export const CardContainer = styled.div`
-    transition: .2s;
+    transition: .4s;
     display: flex;
     flex-direction: column;
     align-items: center;
